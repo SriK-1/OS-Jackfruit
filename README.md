@@ -21,7 +21,7 @@ Follow these steps to build the runtime, load the kernel monitor, and start mana
 
 ```bash
 
-export PS1="CS471"  
+export PS1="CS471"
 
 cd ~/OS-Jackfruit/boilerplate
 
@@ -82,56 +82,56 @@ sudo ./engine supervisor ./rootfs-base
 
 ### Milestone 1: Metadata Tracking & Supervisor Initialization
 
-![Metadata Tracking](boilerplate/screenshots/cp1_ipc_supervisor_ps.png)
+![Metadata Tracking](screenshots/cp1_ipc_supervisor_ps.png)
 
 *Initial supervisor startup and the empty metadata table, verifying the control-plane socket and prompt branding.*
 
 
 ### Milestone 2: CLI and IPC Communication
 
-![CLI IPC](boilerplate/screenshots/cp2.png)
+![CLI IPC](screenshots/cp2.png)
 
 *CLI sending a 'start' request and the supervisor responding via UNIX Domain Socket (IPC Path B).*
 
 
 ### Milestone 3: Multi-Container Supervision
 
-![Multi-Container PS](boilerplate/screenshots/ss1_multicontainer-ps.png)
+![Multi-Container PS](screenshots/ss1_multicontainer-ps.png)
 
 *Two containers (alpha and beta) running concurrently, each tracked with its own host PID and isolated rootfs.*
 
 
 ### Milestone 4: Bounded-Buffer Logging
 
-![Bounded Buffer Logs](boilerplate/screenshots/ss2_bounded-buffer-logs.png)
+![Bounded Buffer Logs](screenshots/ss2_bounded-buffer-logs.png)
 
 *Log contents captured through the synchronized producer-consumer pipeline (IPC Path A).*
 
 
 ### Milestone 5: Soft-Limit Warning
 
-![Soft Limit](boilerplate/screenshots/softhardlim_warning.png)
+![Soft Limit](screenshots/softhardlim_warning.png)
 
 *Kernel dmesg output showing the monitor LKM detecting a soft-limit breach for container 'charlie'.*
 
 
 ### Milestone 6: Hard-Limit Enforcement
 
-![Hard Limit](boilerplate/screenshots/softhardlim_kill.png)
+![Hard Limit](screenshots/softhardlim_kill.png)
 
 *Kernel logs showing SIGKILL enforcement and Supervisor metadata reflecting the 'killed' state (sig=9).*
 
 
 ### Milestone 7: Scheduling Experiment
 
-![Scheduler Race](boilerplate/screenshots/scheduler_exp.png)
+![Scheduler Race](screenshots/scheduler_exp.png)
 
 *Scheduling experiment: High-priority container (nice 0) showing significantly higher CPU accumulator values than low-priority (nice 19).*
 
 
 ### Milestone 8: Clean Teardown
 
-![Teardown](boilerplate/screenshots/ss3_teardown.png)
+![Teardown](screenshots/ss3_teardown.png)
 
 *Verification that all containers are reaped, metadata is updated to 'exited', and the supervisor daemon has exited cleanly.*
 
